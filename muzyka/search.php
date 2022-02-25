@@ -55,15 +55,74 @@
     
     
         <div id="mid">
-            
-        <form action="" class="search-bar">
-	<input type="search" name="search" pattern=".*\S.*" required>
-	<button class="search-btn" type="submit">
-		<span>Search</span>
+            <div id="search_bar">
+                <div id="search_bar_contener">
+        <form action="search.php" class="search-bar" method="post">
+	<input type="search" placeholder="..." name="search" pattern=".*\S.*" required>
+	<button class="fa-solid fa-magnifying-glass" type="submit">
+		
 	</button>
+    
 </form>
-         
-        </div>
+</div>
+</div>
+<div class="list">
+
+
+
+
+<?php
+
+$conn=mysqli_connect('localhost','root','','serwis_muzyka') or die("error");
+
+if(isset($_POST['search'])){
+$search=$_POST['search'];
+
+
+
+
+$sql="SELECT album,autor,tytul FROM muzyka where tytul like '%$search%' or album like '%$search%' or autor like '%$search%'";
+$result=$conn->query($sql);
+
+if($result->num_rows>0){
+
+    while($row=$result->fetch_assoc()){
+    echo <<< row
+    
+
+    
+            
+                <div class="list-element">
+                <img src="cover/walker.jpg" alt="">
+                <div class="description">
+
+                <h4>$row[autor]</h4>
+                <h5>$row[tytul]</h5>
+
+                </div>
+
+                
+                </div>
+                
+                
+            
+            
+
+        
+
+row;
+}
+
+}
+}
+
+
+
+
+
+        ?>
+
+</div>
     
 </body>
 </html>
