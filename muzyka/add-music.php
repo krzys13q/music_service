@@ -54,11 +54,23 @@
     
     
         <div id="mid">
+            <div id="form-contener">
             <form action="">
-                <input type="file" name="" id="">
-                <input type="submit" value="">
+                autor
+               <input type="text" name="author" id="author"><br>
+               tutuł
+               <input type="text" name="tittle" id="tittle"><br>
+               album
+               <input type="text" name="album" id="album"><br>
+                okładka
+               <input type="file" name="cover" id="cover"><br>
+               plik mp3
+               <input type="file" name="music" id="music"><br>
+               
+               <input type="submit" value="dodaj">
+               
             </form>
-            
+            </div>
         
          
         </div>

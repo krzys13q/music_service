@@ -83,7 +83,7 @@ $search=$_POST['search'];
 
 $sql="SELECT album,autor,tytul FROM muzyka where tytul like '%$search%' or album like '%$search%' or autor like '%$search%'";
 $result=$conn->query($sql);
-
+echo "<h1>Utwory</h1>";
 if($result->num_rows>0){
 
     while($row=$result->fetch_assoc()){
@@ -91,7 +91,7 @@ if($result->num_rows>0){
     
 
     
-            
+
                 <div class="list-element">
                 <img src="cover/walker.jpg" alt="">
                 <div class="description">
