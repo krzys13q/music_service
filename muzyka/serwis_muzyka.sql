@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Czas generowania: 25 Lut 2022, 19:04
--- Wersja serwera: 10.4.22-MariaDB
--- Wersja PHP: 8.1.2
+-- Host: 127.0.0.1
+-- Czas generowania: 26 Lut 2022, 23:05
+-- Wersja serwera: 10.4.14-MariaDB
+-- Wersja PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,16 +33,17 @@ CREATE TABLE `muzyka` (
   `album` varchar(50) DEFAULT NULL,
   `tytul` varchar(50) DEFAULT NULL,
   `rok` char(4) DEFAULT NULL,
-  `sciezka` varchar(100) DEFAULT NULL
+  `sciezka_muzyki` varchar(100) DEFAULT NULL,
+  `sciezka_okladki` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Zrzut danych tabeli `muzyka`
 --
 
-INSERT INTO `muzyka` (`id`, `autor`, `album`, `tytul`, `rok`, `sciezka`) VALUES
-(1, 'Alan Walker', 'World Of Walker', 'Man On The Moon', '2021', './songs/Man On The Moon.mp3'),
-(2, 'Alan Walker', 'World Of Walker', 'Not You', '2021', './songs/Not You.mp3');
+INSERT INTO `muzyka` (`id`, `autor`, `album`, `tytul`, `rok`, `sciezka_muzyki`, `sciezka_okladki`) VALUES
+(1, 'Alan Walker', 'World Of Walker', 'Man On The Moon', '2021', './songs/Man On The Moon.mp3', 'cover/walker.jpg'),
+(2, 'Alan Walker', 'World Of Walker', 'Not You', '2021', './songs/Not You.mp3', 'cover/walker.jpg');
 
 -- --------------------------------------------------------
 
