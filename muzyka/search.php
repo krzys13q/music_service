@@ -91,7 +91,7 @@ if($result->num_rows>0){
     
 
     
-
+                <a href="play.php">
                 <div class="list-element">
                 <img src="cover/walker.jpg" alt="">
                 <div class="description">
@@ -103,7 +103,7 @@ if($result->num_rows>0){
 
                 
                 </div>
-                
+                </a>
                 
             
             
