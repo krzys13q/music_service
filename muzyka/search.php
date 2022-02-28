@@ -37,7 +37,7 @@
     </tr>
     <tr>
         <td >
-        <a href="add-playlist.php"><i id="add-playlist" class="fa-regular fa-square-plus"></a></i>
+        <a href="add-music.php"><i id="add-playlist" class="fa-regular fa-square-plus"></a></i>
         </td>
     </tr>
     <tr>
@@ -81,7 +81,7 @@ $search=$_POST['search'];
 
 
 
-$sql="SELECT album,autor,tytul FROM muzyka where tytul like '%$search%' or album like '%$search%' or autor like '%$search%'";
+$sql="SELECT album,autor,tytul,sciezka_okladki FROM muzyka where tytul like '%$search%' or album like '%$search%' or autor like '%$search%' ";
 $result=$conn->query($sql);
 echo "<h1>Utwory</h1>";
 if($result->num_rows>0){
@@ -93,7 +93,7 @@ if($result->num_rows>0){
     
                 <a href="play.php">
                 <div class="list-element">
-                <img src="cover/walker.jpg" alt="">
+                <img src="$row[sciezka_okladki]" alt="">
                 <div class="description">
 
                 <h4>$row[autor]</h4>
