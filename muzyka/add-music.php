@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/all.css">
-    <link rel="stylesheet" href="search.css">
+    <link rel="stylesheet" href="add-music.css">
     <link rel="shortcut icon" href="logo.png" type="image/x-icon">
     <script src="navbar.js"></script>
     <title>Wyszukaj</title>
@@ -54,21 +54,20 @@
     
     
         <div id="mid">
+            <h1>Dodaj utwór</h1>
             <div id="form-contener">
             <form action="">
-                autor
+                Autor <br>
                <input type="text" name="author" id="author"><br>
-               tutuł
+               Tytuł   <br>
                <input type="text" name="tittle" id="tittle"><br>
-               album
+               Album <br>
                <input type="text" name="album" id="album"><br>
-                okładka
+                Okładka <br>
                <input type="file" name="cover" id="cover"><br>
-               plik mp3
+               Plik mp3 <br>
                <input type="file" name="music" id="music"><br>
-               
-               <input type="submit" value="dodaj">
-               
+               <input type="submit" value="Potwierdź">
             </form>
             </div>
         
