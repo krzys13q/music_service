@@ -16,9 +16,6 @@
     
 
     <div id="left">
-    
-    
-    
         
     <table>
     <tr>
@@ -49,29 +46,47 @@
     </tr>
     </table>
     </div>
-    
-        
-    
-    
         <div id="mid">
             <h1>Dodaj utwór</h1>
             <div id="form-contener">
-            <form action="">
+            <form action="" method="post">
                 Autor <br>
                <input type="text" name="author" id="author"><br>
                Tytuł   <br>
                <input type="text" name="tittle" id="tittle"><br>
                Album <br>
                <input type="text" name="album" id="album"><br>
-                Okładka <br>
+               Rok <br>
+               <input type="number" name="year" id="year" value="2022"><br> 
+               Okładka <br>
                <input type="file" name="cover" id="cover"><br>
                Plik mp3 <br>
                <input type="file" name="music" id="music"><br>
                <input type="submit" value="Potwierdź">
             </form>
             </div>
+            <?php
+                $conn = mysqli_connect('localhost','root','','serwis muzyka');
+                /*
+                if(isset($_POST['author']) && isset($_POST['tittle']) && isset($_POST['album']) && isset($_POST['year'])){
+                    $author = $_POST['author'];
+                    $tittle = $_POST['tittle'];
+                    $album = $_POST['album'];
+                    $year = $_POST['year'];
+                    $sql = "insert into `muzyka` (`autor`, `album`, `tytul`, `rok`) values ('$author', '$album', '$tittle', '$year')";
+                    $result = $conn -> query($sql);
+                } */
+            
+                    
         
-         
+                    $cover_file_name = $_FILES['cover'] ['name'];
+                    $cover_file_tmp = $_FILES['cover'] ['tmp_name'];
+                    $pathc = $_SERVER['DOCUMENT ROOT'] . './cover';
+                    move_uploaded_file($cover_file_tmp, $pathc."/".$cover_file_name);
+                
+
+                
+            ?>
         </div>
     
 </body>
