@@ -49,7 +49,7 @@
         <div id="mid">
             <h1>Dodaj utwór</h1>
             <div id="form-contener">
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
                 Autor <br>
                <input type="text" name="author" id="author"><br>
                Tytuł   <br>
@@ -67,23 +67,32 @@
             </div>
             <?php
                 $conn = mysqli_connect('localhost','root','','serwis muzyka');
-                /*
                 if(isset($_POST['author']) && isset($_POST['tittle']) && isset($_POST['album']) && isset($_POST['year'])){
                     $author = $_POST['author'];
                     $tittle = $_POST['tittle'];
                     $album = $_POST['album'];
                     $year = $_POST['year'];
-                    $sql = "insert into `muzyka` (`autor`, `album`, `tytul`, `rok`) values ('$author', '$album', '$tittle', '$year')";
-                    $result = $conn -> query($sql);
-                } */
-            
-                    
-        
+
                     $cover_file_name = $_FILES['cover'] ['name'];
                     $cover_file_tmp = $_FILES['cover'] ['tmp_name'];
-                    $pathc = $_SERVER['DOCUMENT ROOT'] . './cover';
+                    $pathc = $_SERVER['DOCUMENT_ROOT'] . '/muzyka/cover';
                     move_uploaded_file($cover_file_tmp, $pathc."/".$cover_file_name);
+                    $dbpathc = "./cover/".$cover_file_name;
+
+                    $song_file_name = $_FILES['music'] ['name'];
+                    $song_file_tmp = $_FILES['music'] ['tmp_name'];
+                    $paths = $_SERVER['DOCUMENT_ROOT'] . '/muzyka/songs';
+                    move_uploaded_file($song_file_tmp, $paths."/".$song_file_name);
+                    $dbpaths = "./songs/".$song_file_name;
+                    $sql = "insert into `muzyka` (`autor`, `album`, `tytul`, `rok`, `sciezka_muzyki`, `sciezka_okladki`) values ('$author', '$album', '$tittle', '$year', '$dbpaths', '$dbpathc')";
+                    $result = $conn -> query($sql);
+                } 
+            
                 
+                    
+                       
+        
+                   
 
                 
             ?>
