@@ -32,6 +32,7 @@ body{
     float: left;
     height: 100%;
     width: 3%;
+    
     background-color: #000000;
     text-align: center;
     
@@ -83,7 +84,7 @@ background: rgba(6, 3, 3, 0.384);
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 backdrop-filter: blur(7px);
 -webkit-backdrop-filter: blur(7.6px);
-overflow-y: scroll;
+
 
 
 float: left;

@@ -24,7 +24,7 @@
 <table>
     <tr>
         <td >
-        <a href="home.php"><i id="home" class="fa-solid fa-house-chimney"></i></a> </td>
+        <a href="start.php"><i id="home" class="fa-solid fa-house-chimney"></i></a> </td>
     </tr>
     <tr>
         <td >
