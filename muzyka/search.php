@@ -91,7 +91,7 @@ if($result->num_rows>0){
     
 
     
-                <a href="play.php?autor=$row[autor]&okladka=$row[sciezka_okladki]&tytul=$row[tytul]&muzyka=$row[sciezka_muzyki]" >
+                <a href="play.php?autor=$row[autor]&okladka=$row[sciezka_okladki]&tytul=$row[tytul]&muzyka=$row[sciezka_muzyki]&album=$row[album]" >
                 <div class="list-element">
                 <img src="$row[sciezka_okladki]" alt="">
                 <div class="description">

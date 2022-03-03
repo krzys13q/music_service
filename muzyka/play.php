@@ -22,6 +22,7 @@ $autor=$_GET['autor'];
 $okladka=$_GET['okladka'];
 $tytul=$_GET['tytul'];
 $muzyka=$_GET['muzyka'];
+$album=$_GET['album'];
 
 ?>
 
@@ -47,7 +48,7 @@ $muzyka=$_GET['muzyka'];
     </tr>
     <tr>
         <td >
-        <a href="add-playlist.php"><i id="add-playlist" class="fa-regular fa-square-plus"></a></i>
+        <a href="add-playlist.php"><i id="add-music.php" class="fa-regular fa-square-plus"></a></i>
         </td>
     </tr>
     <tr>
@@ -67,34 +68,11 @@ $muzyka=$_GET['muzyka'];
         <div id="mid">
             
             <div id="album-list">
-                        <h2>Utwory z Albumu:World of walker</h2>
+                        <h2>Utwory z Albumu: <?php echo $album ?></h2>
                         <div class="list">
-                        <img src="./cover/walker.jpg" alt="walker"> piosenka1
+                        <img src="<?php echo $okladka ?>" alt="<?php echo $album ?>"> piosenka1
                         </div>
-                        <div class="list">
-                        <img src="./cover/walker.jpg" alt="walker"> piosenka1
-                        </div>
-                        <div class="list">
-                        <img src="./cover/walker.jpg" alt="walker"> piosenka1
-                        </div>
-                        <div class="list">
-                        <img src="./cover/walker.jpg" alt="walker"> piosenka1
-                        </div>
-                        <div class="list">
-                        <img src="./cover/walker.jpg" alt="walker"> piosenka1
-                        </div>
-                        <div class="list">
-                        <img src="./cover/walker.jpg" alt="walker"> piosenka1
-                        </div>
-                        <div class="list">
-                        <img src="./cover/walker.jpg" alt="walker"> piosenka1
-                        </div>
-                        <div class="list">
-                        <img src="./cover/walker.jpg" alt="walker"> piosenka1
-                        </div>
-                        <div class="list">
-                        <img src="./cover/walker.jpg" alt="walker"> piosenka1
-                        </div>
+                        
                 
 
 
