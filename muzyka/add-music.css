@@ -142,6 +142,7 @@ input::placeholder {
     background-color:#d10966;
     width: 20%;
     color: white;
+    cursor: pointer;
  
     
     

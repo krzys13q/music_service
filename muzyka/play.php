@@ -16,7 +16,14 @@
 <body>
     
 <div id="background">
-    
+<?php
+
+$autor=$_GET['autor'];
+$okladka=$_GET['okladka'];
+$tytul=$_GET['tytul'];
+$muzyka=$_GET['muzyka'];
+
+?>
 
     <div id="left">
     
@@ -96,21 +103,24 @@
         <div id="info">
             <div class="fota">
                 <div class="fota-box">
-                <img src="./cover/walker.jpg" alt="fota">
+                <img src="<?php echo $okladka ?>" alt="fota">
                 </div>
             </div>
             
         
             
             <div id="title">
-                <h1>On The Moon</h1>
-                <h2>Alan Walker</h2>
+                <h1><?php echo $tytul ?></h1>
+                <h2><?php echo $autor ?></h2>
+                
             </div>
         </div>
         <div id="playbar">
             <div class="audio">
         <audio controls>
-  <source src="./songs/Man On The Moon.mp3" type="">
+
+  <source src="<?php echo $muzyka ?>" type="">
+ 
   </div>
   
 

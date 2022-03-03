@@ -81,7 +81,7 @@ $search=$_POST['search'];
 
 
 
-$sql="SELECT album,autor,tytul,sciezka_okladki FROM muzyka where tytul like '%$search%' or album like '%$search%' or autor like '%$search%' ";
+$sql="SELECT album,autor,tytul,sciezka_okladki,sciezka_muzyki FROM muzyka where tytul like '%$search%' or album like '%$search%' or autor like '%$search%' ";
 $result=$conn->query($sql);
 echo "<h1>Utwory</h1>";
 if($result->num_rows>0){
@@ -91,13 +91,14 @@ if($result->num_rows>0){
     
 
     
-                <a href="play.php">
+                <a href="play.php?autor=$row[autor]&okladka=$row[sciezka_okladki]&tytul=$row[tytul]&muzyka=$row[sciezka_muzyki]" >
                 <div class="list-element">
                 <img src="$row[sciezka_okladki]" alt="">
                 <div class="description">
 
                 <h4>$row[autor]</h4>
                 <h5>$row[tytul]</h5>
+               
 
                 </div>
 
