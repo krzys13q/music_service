@@ -70,7 +70,7 @@ $album=$_GET['album'];
             <div id="album-list">
                         <h2>Utwory z Albumu: <?php echo $album ?></h2>
                         <div class="list">
-                        <img src="<?php echo $okladka ?>" alt="<?php echo $album ?>"> piosenka1
+                        <img src="<?php echo $okladka ?>" alt="<?php echo $album ?>"> <?php echo $tytul?>
                         </div>
                         
                 
