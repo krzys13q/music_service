@@ -12,37 +12,7 @@
 </head>
 <body>
 <div id="background">
-<div id="left">
-        
-        <table>
-        <tr>
-            <td >
-            <a href="start.php"><i  class="fa-solid fa-house-chimney"></i></a> </td>
-        </tr>
-        <tr>
-            <td >
-            <a href="search.php"><i  class="fa-solid fa-magnifying-glass"></a></i>
-            </td>
-        </tr>
-        <tr>
-            <td >
-            <a href="playlist.php"><i  class="fa-solid fa-compact-disc"></a></i>
-            </td>
-        </tr>
-        <tr>
-            <td >
-            <a href="add-music.php"><i id="add-music" class="fa-regular fa-square-plus"></a></i>
-            </td>
-        </tr>
-        <tr>
-            <td >
-            <a href="user.php">
-            <i  class="fa-solid fa-circle-user"></i>
-            </a>
-            </td>
-        </tr>
-        </table>
-        </div>
+
     <div id="form">
     <img id="logo" src="logo.png" alt="logo">
     <h1>Rejestracja</h1>
