@@ -71,6 +71,11 @@ $album=$_GET['album'];
                         <h2>Utwory z Albumu: <?php echo $album ?></h2>
                         <div class="list">
                         <img src="<?php echo $okladka ?>" alt="<?php echo $album ?>"> <?php echo $tytul?>
+                        <table>
+                           <tr>
+                               <th><b>tytul</b></th><th>Autor</th>
+                           </tr>
+                        </table>
                         </div>
                         
                 
