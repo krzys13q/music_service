@@ -69,15 +69,39 @@ $album=$_GET['album'];
             
             <div id="album-list">
                         <h2>Utwory z Albumu: <?php echo $album ?></h2>
-                        <div class="list">
-                        <img src="<?php echo $okladka ?>" alt="<?php echo $album ?>"> <?php echo $tytul?>
-                        <table>
-                           <tr>
-                               <th><b>tytul</b></th><th>Autor</th>
-                           </tr>
-                        </table>
-                        </div>
+
+                        <?php
+                        $conn=mysqli_connect('localhost','root','','serwis_muzyka') or die("error");
                         
+                        $sql="SELECT autor,album,tytul,sciezka_muzyki,sciezka_okladki FROM muzyka WHERE album = '$album'";
+                        $result=$conn->query($sql);
+
+                        
+
+                        if($result->num_rows>0){
+                            
+                        while($row=$result->fetch_assoc()){
+                            
+                        echo <<< row
+
+                        <div class="list">
+                        <div class="tracklist-row"><p>1</p></div>
+                                    
+                        <div class="img-list"><img src="$row[sciezka_okladki]" alt="$row[album]></div>
+                        <div class="author-tittle"><p><b>$row[tytul]</b><br>$row[autor]</p></div>
+                        <div class="play"><i class="fa-solid fa-circle-play"></i></div>
+                        
+                        
+                           
+                        </div>
+row;                     
+
+                        }
+                      
+                    }
+                    
+                    mysqli_close($conn);
+                        ?>
                 
 
 
