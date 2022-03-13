@@ -13,7 +13,7 @@
 <body onload="check()">
 <?php
 session_start();
-if(!isset($session['zalogowany'])){
+if(!isset($_SESSION['zalogowany'])){
     header('location:login.php');
 }
 ?>

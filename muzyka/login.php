@@ -35,7 +35,7 @@ if(isset($_POST['login']) && isset($_POST['password'])){
 $login=$_POST['login'];
 $password=$_POST['password'];
 
-$sql="SELECT `id`,`login`,`name`,`password`,`type` FROM `users` where `login`='$login' and `password`='$password'";
+$sql="SELECT id,login,name,password,type FROM `users` where login='$login' and password='$password'";
 
 $result=$conn->query($sql);
 if($result->num_rows>0){

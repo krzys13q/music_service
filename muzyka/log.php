@@ -5,6 +5,7 @@ if(isset($_SESSION['zalogowany']) && ($_SESSION['zalogowany']==true)){
 }
 else
 {
-    header('location:login.php');
+   session_unset();
+   header('location:login.php');
 }
 ?>

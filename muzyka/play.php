@@ -18,7 +18,7 @@
 <div id="background">
 <?php
 session_start();
-if(!isset($session['zalogowany'])){
+if(!isset($_SESSION['zalogowany'])){
     header('location:login.php');
 }
 
@@ -76,7 +76,7 @@ $album=$_GET['album'];
                         <h2>Utwory z Albumu: <?php echo $album ?></h2>
 
                         <?php
-                        session_start();
+                    
                         $conn=mysqli_connect('localhost','root','','serwis_muzyka') or die("error");
                         
                         $sql="SELECT ROW_number() over(ORDER by tytul asc) as licznik, autor,album,tytul,sciezka_muzyki,sciezka_okladki FROM muzyka WHERE album ='$album'";

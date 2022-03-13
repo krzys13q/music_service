@@ -14,8 +14,10 @@
 <body onload="check()">
 <?php 
 session_start();
-if(!isset($session['zalogowany'])){
+if(!isset($_SESSION['zalogowany']))
+{
     header('location:login.php');
+    exit();
 }
 ?>
 <div id="background">
@@ -68,7 +70,7 @@ if(!isset($session['zalogowany'])){
 
 
 <?php
-session_start();
+
 $conn=mysqli_connect('localhost','root','','serwis_muzyka') or die("error");
 
 
