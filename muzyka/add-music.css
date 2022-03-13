@@ -41,20 +41,30 @@ body{
     
     
 }
-table,td{
+
+.menu{
     width: 100%;
     color: gainsboro;
-    font-size: 110%;
+    font-size: 3vh;
     text-align: center;
     padding-top: 25%;
-    padding-bottom: 25%;
-    color: white;
+    padding-bottom: 8%;
+    
+    
     
 }
-
-td:hover{
-
-color: aqua;
+#logout{
+    
+    font-size: 3vh; 
+    padding-top: 25%;
+    
+    width: 100%;
+    
+    
+}
+#logout i:hover{
+    color: #d10966;
+    
 }
 
 i{

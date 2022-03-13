@@ -12,39 +12,47 @@
     
 </head>
 <body onload="check()">
+<?php
+session_start();
+if(!isset($session['zalogowany'])){
+    header('location:login.php');
+}
+?>
 <div id="background">
     
 
     <div id="left">
-        
-    <table>
-    <tr>
-        <td >
-        <a href="start.php"><i  class="fa-solid fa-house-chimney"></i></a> </td>
-    </tr>
-    <tr>
-        <td >
-        <a href="search.php"><i  class="fa-solid fa-magnifying-glass"></a></i>
-        </td>
-    </tr>
-    <tr>
-        <td >
-        <a href="playlist.php"><i  class="fa-solid fa-compact-disc"></a></i>
-        </td>
-    </tr>
-    <tr>
-        <td >
-        <a href="add-music.php"><i id="add-music" class="fa-regular fa-square-plus"></a></i>
-        </td>
-    </tr>
-    <tr>
-        <td >
-        <a href="user.php">
-        <i  class="fa-solid fa-circle-user"></i>
-        </a>
-        </td>
-    </tr>
-    </table>
+    <div class="menu">
+    
+
+    <a href="start.php"><i class="fa-solid fa-house-chimney"></i></a>
+    </div>
+    <div class="menu">
+    <a href="search.php"><i  class="fa-solid fa-magnifying-glass"></a></i>
+    </div>
+    <div class="menu">
+    <a href="playlist.php"><i  class="fa-solid fa-compact-disc"></a></i>
+    </div>
+    <div class="menu">
+    <a href="add-music.php"><i id="add-music"  class="fa-regular fa-square-plus"></a></i>
+    </div>
+
+    <div class="menu">
+    <a href="user.php">
+    <i  class="fa-solid fa-circle-user"></i>
+    </a>
+    </div>
+
+    
+ 
+
+
+<div id="logout">
+<a href="logout.php">
+    <i  class="fa-solid fa-right-to-bracket"></i>
+    </a>
+    </div>
+    
     </div>
         <div id="mid">
             
@@ -68,6 +76,7 @@
             </form>
             </div>
             <?php
+                
                 $conn = mysqli_connect('localhost','root','','serwis_muzyka');
                 if(isset($_POST['author']) && isset($_POST['tittle']) && isset($_POST['album']) && isset($_POST['year'])){
                     $author = $_POST['author'];

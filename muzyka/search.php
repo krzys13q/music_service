@@ -12,42 +12,50 @@
     <title>Wyszukaj</title>
 </head>
 <body onload="check()">
+<?php
+session_start();
+if(!isset($session['zalogowany'])){
+    header('location:login.php');
+}
+?>
 <div id="background">
     
 
     <div id="left">
     
     
+    <div class="menu">
+    
+
+        <a href="start.php"><i  class="fa-solid fa-house-chimney"></i></a>
+        </div>
+        <div class="menu">
+        <a href="search.php"><i id="search" class="fa-solid fa-magnifying-glass"></a></i>
+        </div>
+        <div class="menu">
+        <a href="playlist.php"><i  class="fa-solid fa-compact-disc"></a></i>
+        </div>
+        <div class="menu">
+        <a href="add-music.php"><i  class="fa-regular fa-square-plus"></a></i>
+        </div>
+    
+        <div class="menu">
+        <a href="user.php">
+        <i  class="fa-solid fa-circle-user"></i>
+        </a>
+        </div>
     
         
-    <table>
-    <tr>
-        <td >
-        <a href="start.php"><i id="home" class="fa-solid fa-house-chimney"></i></a> </td>
-    </tr>
-    <tr>
-        <td >
-        <a href="search.php"><i id="search" class="fa-solid fa-magnifying-glass"></a></i>
-        </td>
-    </tr>
-    <tr>
-        <td >
-        <a href="playlist.php"><i id="playlist" class="fa-solid fa-compact-disc"></a></i>
-        </td>
-    </tr>
-    <tr>
-        <td >
-        <a href="add-music.php"><i id="add-playlist" class="fa-regular fa-square-plus"></a></i>
-        </td>
-    </tr>
-    <tr>
-        <td >
-        <a href="user.php">
-        <i id="account" class="fa-solid fa-circle-user"></i>
+     
+
+
+<div id="logout">
+<a href="user.php">
+        <i  class="fa-solid fa-right-to-bracket"></i>
         </a>
-        </td>
-    </tr>
-    </table>
+        </div>
+        
+    
     
     </div>
     
@@ -83,14 +91,14 @@ $search=$_POST['search'];
 
 $sql="SELECT album,autor,tytul,sciezka_okladki,sciezka_muzyki FROM muzyka where tytul like '%$search%' or album like '%$search%' or autor like '%$search%' ";
 $result=$conn->query($sql);
-echo "<h1>Utwory</h1>";
-if($result->num_rows>0){
 
+if($result->num_rows>0){
+    echo "<h1>Utwory</h1>";
     while($row=$result->fetch_assoc()){
     echo <<< row
     
 
-    
+                
                 <a href="play.php?autor=$row[autor]&okladka=$row[sciezka_okladki]&tytul=$row[tytul]&muzyka=$row[sciezka_muzyki]&album=$row[album]" >
                 <div class="list-element">
                 <img src="$row[sciezka_okladki]" alt="">
@@ -110,10 +118,14 @@ if($result->num_rows>0){
             
 
         
-
+ 
 row;
 }
 
+
+}else
+{
+    echo "<script> alert('Brak wyników wyszukiwania');</script>";
 }
 }
 

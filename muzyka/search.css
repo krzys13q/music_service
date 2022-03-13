@@ -35,24 +35,24 @@ body{
     background-color: #000000;
     text-align: center;
     
-    font-size: 2.5vh;
+   
     
     
     
     
 }
-table,td{
+.menu{
     width: 100%;
     color: gainsboro;
-    font-size: 110%;
+    font-size: 3vh; 
     text-align: center;
     padding-top: 25%;
-    padding-bottom: 25%;
-    color: white;
+    padding-bottom: 8%;
+    
     
 }
 
-td:hover{
+.menu i:hover{
 
 color: aqua;
 }
@@ -61,11 +61,20 @@ i{
     color: gainsboro;
     text-decoration: none;
 }
+#logout{
+    
+    font-size: 3vh; 
+    padding-top: 25%;
+    
+    width: 100%;
+    
+    
+}
+#logout i:hover{
+    color: #d10966;
+    
+}
 
-i:hover{
-
-    color: aqua;
-    }
  #mid{
         color: white;
         height: 100vh;
@@ -125,6 +134,11 @@ cursor:pointer;
 h1{
     padding:20px;
     clear: left;
+}
+h2{
+    padding:20px;
+    margin-left: 50%;
+
 }
 .list{
     width: 96vw;

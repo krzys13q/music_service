@@ -35,24 +35,28 @@ body{
     background-color: #000000;
     text-align: center;
     
-    font-size: 2.5vh;
     
     
     
-    
-}
-table,td{
-    width: 100%;
-    color: gainsboro;
-    font-size: 110%;
-    text-align: center;
-    padding-top: 25%;
-    padding-bottom: 25%;
-    color: white;
     
 }
 
-td:hover{
+#left i:hover{
+    color: aqua;
+
+}
+.menu{
+    width: 100%;
+    color: gainsboro;
+    font-size: 3vh; 
+    text-align: center;
+    padding-top: 25%;
+    padding-bottom: 8%;
+    
+    
+}
+
+.menu:hover{
 
 color: aqua;
 }
@@ -62,11 +66,20 @@ i{
     text-decoration: none;
 }
 
-#left i:hover{
 
-    color: aqua;
-    }
-
+#logout{
+    
+    font-size: 3vh; 
+    padding-top: 25%;
+    
+    width: 100%;
+    
+    
+}
+#logout i:hover{
+    color: #d10966;
+    
+}
     
 
 
@@ -196,7 +209,7 @@ border-radius: 5px;
     
     float: left;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     font-size: 1.5vh;
        
@@ -253,8 +266,13 @@ border-radius: 5px;
 
 .fota-box {
     width: 30%;
+   
 }
 
+.fota-box img{
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.76);
+    
+}
 .fota{
     width: 100%;
     display: flex;

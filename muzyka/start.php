@@ -12,44 +12,48 @@
     <title>Document</title>
 </head>
 <body onload="check()">
-
+<?php 
+session_start();
+if(!isset($session['zalogowany'])){
+    header('location:login.php');
+}
+?>
 <div id="background">
     
 
 <div id="left">
 
 
-
+<div class="menu">
     
-<table>
-    <tr>
-        <td >
-        <a href="start.php"><i id="home" class="fa-solid fa-house-chimney"></i></a> </td>
-    </tr>
-    <tr>
-        <td >
+
+        <a href="start.php"><i id="home" class="fa-solid fa-house-chimney"></i></a>
+        </div>
+        <div class="menu">
         <a href="search.php"><i  class="fa-solid fa-magnifying-glass"></a></i>
-        </td>
-    </tr>
-    <tr>
-        <td >
+        </div>
+        <div class="menu">
         <a href="playlist.php"><i  class="fa-solid fa-compact-disc"></a></i>
-        </td>
-    </tr>
-    <tr>
-        <td >
+        </div>
+        <div class="menu">
         <a href="add-music.php"><i  class="fa-regular fa-square-plus"></a></i>
-        </td>
-    </tr>
-    <tr>
-        <td >
+        </div>
+    
+        <div class="menu">
         <a href="user.php">
         <i  class="fa-solid fa-circle-user"></i>
         </a>
-        </td>
-    </tr>
+        </div>
+    
+        
+     
 
-</table>
+
+<div id="logout">
+<a href="logout.php">
+        <i  class="fa-solid fa-right-to-bracket"></i>
+        </a>
+        </div>
 </div>
 
     
@@ -59,39 +63,61 @@
         
             <h1>Polecane</h1>
             <div class="list">
+
+
+
+
+<?php
+session_start();
+$conn=mysqli_connect('localhost','root','','serwis_muzyka') or die("error");
+
+
+
+
+
+
+$sql="SELECT album,autor,tytul,sciezka_okladki,sciezka_muzyki FROM muzyka where tytul like '%' ";
+$result=$conn->query($sql);
+
+if($result->num_rows>0){
+
+    while($row=$result->fetch_assoc()){
+    echo <<< row
+    
+
+    
+                <a href="play.php?autor=$row[autor]&okladka=$row[sciezka_okladki]&tytul=$row[tytul]&muzyka=$row[sciezka_muzyki]&album=$row[album]" >
                 <div class="list-element">
-                <img src="cover/walker.jpg" alt="">
+                <img src="$row[sciezka_okladki]" alt="">
                 <div class="description">
 
-                <h4>Alan Walker</h4>
-                <h5>World Of Walker</h5>
+                <h4>$row[autor]</h4>
+                <h5>$row[tytul]</h5>
+               
 
                 </div>
 
                 
                 </div>
+                </a>
                 
-                <div class="list-element">
-                <img src="cover/walker.jpg" alt="">
-                <div class="description">
+            
+            
 
-                <h4>Alan Walker</h4>
-                <h5>World Of Walker</h5>
+        
 
-                </div>
-                
-            </div>
-            <div class="list">
-            <div class="list-element">
-                <img src="cover/Adele_30.jpg" alt="">
-                <div class="description">
+row;
+}
 
-                <h4>Adele</h4>
-                <h5>30</h5>
+}
 
-                </div>
 
-            </div>
+
+
+mysqli_close($conn);
+
+        ?>
+
             
             <h1>Pop</h1>
             <div class="list">
