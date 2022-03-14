@@ -107,7 +107,8 @@ i:hover{
     height: auto;
     
     border: 1px solid aqua;
-    height: 70%;
+    min-height: 800px;
+    
     width: 50%;
     border-radius: 10%;
 }

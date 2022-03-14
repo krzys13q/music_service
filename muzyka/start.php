@@ -32,13 +32,13 @@ if(!isset($_SESSION['zalogowany']))
         <a href="start.php"><i id="home" class="fa-solid fa-house-chimney"></i></a>
         </div>
         <div class="menu">
-        <a href="search.php"><i  class="fa-solid fa-magnifying-glass"></a></i>
+        <a href="search.php"><i class="fa-solid fa-magnifying-glass"></a></i>
         </div>
         <div class="menu">
         <a href="playlist.php"><i  class="fa-solid fa-compact-disc"></a></i>
         </div>
         <div class="menu">
-        <a href="add-music.php"><i  class="fa-regular fa-square-plus"></a></i>
+        <a href="add-music.php"><i   class="fa-regular fa-square-plus"></a></i>
         </div>
     
         <div class="menu">

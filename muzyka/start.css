@@ -76,7 +76,7 @@ float: left;
 }
 #mid::-webkit-scrollbar-thumb {
     border-radius: 8px;
-    border: 2px solid rgba(0, 0, 255, 0); /* should match background, can't be transparent */
+    border: 2px solid rgba(0, 0, 255, 0); 
     background-color: rgba(255, 255, 255, 0.884);
 }
 #mid::-webkit-scrollbar-track { 
@@ -110,9 +110,9 @@ float: left;
     
 }
 
-.menu:hover{
+i:hover{
 
-color: aqua;
+color:aqua;
 }
 
 i{
