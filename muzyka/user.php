@@ -63,7 +63,14 @@ if(!isset($_SESSION['zalogowany'])){
         <h1>Profil </h1><p><?php echo $_SESSION['login']; ?></p>
         <h3>Nazwa</h3><p><?php echo $_SESSION['name']; ?></p>
         
-        <h3>Typ konta </h3><p><?php echo $_SESSION['type']; ?></p>
+        <h3>Typ konta </h3><p><?php if($_SESSION['type']==1){
+            echo 'słuchacz';
+        }
+        else
+        {
+            echo 'artysta';
+        }
+        ?></p>
 
     </div>
          
