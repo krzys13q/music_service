@@ -63,9 +63,9 @@ if(!isset($_SESSION['zalogowany']))
 
     <div id="mid">
         
-            <h1>Polecane</h1>
+           
             <div class="list">
-
+            <h1>Polecane</h1>
 
 
 
@@ -116,29 +116,149 @@ row;
 
 
 
-mysqli_close($conn);
+
 
         ?>
 
             
             <h1>Pop</h1>
             <div class="list">
-            <div class="list-element">
-                <img src="cover/Adele_30.jpg" alt="">
+ <?php           
+            $sql="SELECT album,autor,tytul,sciezka_okladki,sciezka_muzyki FROM muzyka where gatunek like 'pop' ";
+$result=$conn->query($sql);
+
+if($result->num_rows>0){
+
+    while($row=$result->fetch_assoc()){
+    echo <<< row2
+    
+
+    
+                <a href="play.php?autor=$row[autor]&okladka=$row[sciezka_okladki]&tytul=$row[tytul]&muzyka=$row[sciezka_muzyki]&album=$row[album]" >
+                <div class="list-element">
+                <img src="$row[sciezka_okladki]" alt="">
                 <div class="description">
 
-                <h4>Adele</h4>
-                <h5>30</h5>
+                <h4>$row[autor]</h4>
+                <h5>$row[tytul]</h5>
+               
 
                 </div>
+
+                
+                </div>
+                </a>
+                
+            
+            
+
+        
+
+row2;
+}
+
+}
+
+
+
+
+
+
+        ?>
+
+
 
             </div>
             <h1>Rock</h1>
             <div class="list">
+            <?php
+            $sql="SELECT album,autor,tytul,sciezka_okladki,sciezka_muzyki FROM muzyka where gatunek like 'rock' ";
+$result=$conn->query($sql);
 
+if($result->num_rows>0){
+
+    while($row=$result->fetch_assoc()){
+    echo <<< row
+    
+
+    
+                <a href="play.php?autor=$row[autor]&okladka=$row[sciezka_okladki]&tytul=$row[tytul]&muzyka=$row[sciezka_muzyki]&album=$row[album]" >
+                <div class="list-element">
+                <img src="$row[sciezka_okladki]" alt="">
+                <div class="description">
+
+                <h4>$row[autor]</h4>
+                <h5>$row[tytul]</h5>
+               
+
+                </div>
+
+                
+                </div>
+                </a>
+                
+            
+            
+
+        
+
+row;
+}
+
+}
+
+
+
+
+
+
+        ?>
+           
             </div>
             <h1>Hip-hop</h1>
             <div class="list">
+<?php
+            $sql="SELECT album,autor,tytul,sciezka_okladki,sciezka_muzyki FROM muzyka where gatunek like 'Hip-Hop' ";
+$result=$conn->query($sql);
+
+if($result->num_rows>0){
+
+    while($row=$result->fetch_assoc()){
+    echo <<< row
+    
+
+    
+                <a href="play.php?autor=$row[autor]&okladka=$row[sciezka_okladki]&tytul=$row[tytul]&muzyka=$row[sciezka_muzyki]&album=$row[album]" >
+                <div class="list-element">
+                <img src="$row[sciezka_okladki]" alt="">
+                <div class="description">
+
+                <h4>$row[autor]</h4>
+                <h5>$row[tytul]</h5>
+               
+
+                </div>
+
+                
+                </div>
+                </a>
+                
+            
+            
+
+        
+
+row;
+}
+
+}
+
+
+
+
+
+
+        ?>
 
             </div>
             <h1>Dance</h1>
