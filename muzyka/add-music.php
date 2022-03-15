@@ -66,6 +66,8 @@ if(!isset($_SESSION['zalogowany'])){
                <input type="text" placeholder="Tytuł" name="tittle" id="tittle"><br>
                 
                <input type="text" placeholder="Album" name="album" id="album"><br>
+
+               <input type="text" placeholder="Gatunek" name="gatunek" id="gatunek"><br>
              
                <input type="number" placeholder="Rok " name="year" id="year" value="2022"><br> 
                Okładka <br>
