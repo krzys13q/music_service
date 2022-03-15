@@ -152,6 +152,7 @@ input::placeholder {
     cursor: pointer;
     margin: 0 0 3% 0;
     
+    
 }
 
 #form-contener input[type=file] {
