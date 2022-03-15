@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Czas generowania: 14 Mar 2022, 22:56
--- Wersja serwera: 10.4.14-MariaDB
--- Wersja PHP: 7.2.34
+-- Czas generowania: 15 Mar 2022, 10:19
+-- Wersja serwera: 10.1.8-MariaDB
+-- Wersja PHP: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -34,24 +33,25 @@ CREATE TABLE `muzyka` (
   `tytul` varchar(50) DEFAULT NULL,
   `rok` int(4) DEFAULT NULL,
   `sciezka_muzyki` varchar(100) DEFAULT NULL,
-  `sciezka_okladki` varchar(100) NOT NULL
+  `sciezka_okladki` varchar(100) NOT NULL,
+  `gatunek` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Zrzut danych tabeli `muzyka`
 --
 
-INSERT INTO `muzyka` (`id`, `autor`, `album`, `tytul`, `rok`, `sciezka_muzyki`, `sciezka_okladki`) VALUES
-(1, 'Alan Walker', 'World Of Walker', 'Man On The Moon', 2021, './songs/Man On The Moon.mp3', 'cover/walker.jpg'),
-(2, 'Alan Walker', 'World Of Walker', 'Not You', 2021, './songs/Not You.mp3', 'cover/walker.jpg'),
-(3, 'Ed Sheeran', 'X', 'I See Fire', 2014, './songs/I See Fire.mp3', './cover/X.jpg'),
-(4, 'Ekipa', 'Sezon 3', 'Chill', 2021, './songs/Chill.mp3', './cover/ekipa.jpg'),
-(12, 'Ekipa', 'Sezon 3', 'Selfmade', 2021, './songs/EKIPA - SELFMADE.mp3', './cover/ekipa.jpg'),
-(41, 'Ekipa', 'Sezon 3', 'Napad Na Bank', 2021, './songs/EKIPA - NAPAD NA BANK (ft. Roxie).mp3', './cover/ekipa.jpg'),
-(42, 'Avici', 'Stories', 'Waiting For Love', 2015, './songs/Avicii - Waiting For Love.mp3', './cover/Avicii-Stories-2015-1200x1200.png'),
-(43, 'Gawryle', 'Harnaś', 'Harnaś Ice Tea', 2021, './songs/harnas-ice-tea-prod-dutchrevz.mp3', './cover/harnas.jpg'),
-(44, 'Ed Sheeran', 'X', 'Photograph', 2014, './songs/Ed Sheeran - Photograph -  LYRICS .mp3', './cover/X.jpg'),
-(45, 'AC/DC', 'Highway to Hell', 'Highway to Hell', 1979, './songs/ACDC - Highway To Hell.mp3', './cover/highway_to_hell.jpg');
+INSERT INTO `muzyka` (`id`, `autor`, `album`, `tytul`, `rok`, `sciezka_muzyki`, `sciezka_okladki`, `gatunek`) VALUES
+(1, 'Alan Walker', 'World Of Walker', 'Man On The Moon', 2021, './songs/Man On The Moon.mp3', 'cover/walker.jpg', 'Pop'),
+(2, 'Alan Walker', 'World Of Walker', 'Not You', 2021, './songs/Not You.mp3', 'cover/walker.jpg', 'Pop'),
+(3, 'Ed Sheeran', 'X', 'I See Fire', 2014, './songs/I See Fire.mp3', './cover/X.jpg', 'Pop'),
+(4, 'Ekipa', 'Sezon 3', 'Chill', 2021, './songs/Chill.mp3', './cover/ekipa.jpg', 'Pop'),
+(12, 'Ekipa', 'Sezon 3', 'Selfmade', 2021, './songs/EKIPA - SELFMADE.mp3', './cover/ekipa.jpg', 'Hip-Hop'),
+(41, 'Ekipa', 'Sezon 3', 'Napad Na Bank', 2021, './songs/EKIPA - NAPAD NA BANK (ft. Roxie).mp3', './cover/ekipa.jpg', 'Pop'),
+(42, 'Avici', 'Stories', 'Waiting For Love', 2015, './songs/Avicii - Waiting For Love.mp3', './cover/Avicii-Stories-2015-1200x1200.png', 'Pop'),
+(43, 'Gawryle', 'Harnaś', 'Harnaś Ice Tea', 2021, './songs/harnas-ice-tea-prod-dutchrevz.mp3', './cover/harnas.jpg', 'Pop'),
+(44, 'Ed Sheeran', 'X', 'Photograph', 2014, './songs/Ed Sheeran - Photograph -  LYRICS .mp3', './cover/X.jpg', 'Pop'),
+(45, 'AC/DC', 'Highway to Hell', 'Highway to Hell', 1979, './songs/ACDC - Highway To Hell.mp3', './cover/highway_to_hell.jpg', 'Rock');
 
 -- --------------------------------------------------------
 
@@ -87,20 +87,20 @@ INSERT INTO `users` (`id`, `login`, `name`, `password`, `type`) VALUES
 --
 
 --
--- Indeksy dla tabeli `muzyka`
+-- Indexes for table `muzyka`
 --
 ALTER TABLE `muzyka`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeksy dla tabeli `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `login` (`login`);
 
 --
--- AUTO_INCREMENT dla zrzuconych tabel
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
@@ -108,14 +108,11 @@ ALTER TABLE `users`
 --
 ALTER TABLE `muzyka`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
-
 --
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
