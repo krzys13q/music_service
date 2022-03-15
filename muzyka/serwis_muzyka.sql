@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Czas generowania: 15 Mar 2022, 10:34
--- Wersja serwera: 10.4.22-MariaDB
--- Wersja PHP: 8.1.2
+-- Czas generowania: 15 Mar 2022, 11:02
+-- Wersja serwera: 10.1.8-MariaDB
+-- Wersja PHP: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -53,7 +52,9 @@ INSERT INTO `muzyka` (`id`, `autor`, `album`, `tytul`, `rok`, `sciezka_muzyki`, 
 (43, 'Gawryle', 'Harnaś', 'Harnaś Ice Tea', 2021, './songs/harnas-ice-tea-prod-dutchrevz.mp3', './cover/harnas.jpg', 'Pop'),
 (44, 'Ed Sheeran', 'X', 'Photograph', 2014, './songs/Ed Sheeran - Photograph -  LYRICS .mp3', './cover/X.jpg', 'Pop'),
 (45, 'AC/DC', 'Highway to Hell', 'Highway to Hell', 1979, './songs/ACDC - Highway To Hell.mp3', './cover/highway_to_hell.jpg', 'Rock'),
-(46, 'Ekipa', 'Sezon 3', 'Szlafroki (feat Janusz Walczuk))', 2021, './songs/szlafroki-feat-janusz-walczuk.mp3', './cover/ekipa.jpg', 'Hip-Hop');
+(46, 'Ekipa', 'Sezon 3', 'Szlafroki (feat Janusz Walczuk))', 2021, './songs/szlafroki-feat-janusz-walczuk.mp3', './cover/ekipa.jpg', 'Hip-Hop'),
+(47, 'Bob Marley', 'Kaya', 'Is this love ', 1978, './songs/Is this love.mp3', './cover/bob.jpg', 'Reggae'),
+(48, 'Chet Baker', 'Chet Baker', 'My Funny Valentine', 2001, './songs/my funny valentine.mp3', './cover/Chet.jpg', 'Jazz');
 
 -- --------------------------------------------------------
 
@@ -89,35 +90,32 @@ INSERT INTO `users` (`id`, `login`, `name`, `password`, `type`) VALUES
 --
 
 --
--- Indeksy dla tabeli `muzyka`
+-- Indexes for table `muzyka`
 --
 ALTER TABLE `muzyka`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeksy dla tabeli `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `login` (`login`);
 
 --
--- AUTO_INCREMENT dla zrzuconych tabel
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
 -- AUTO_INCREMENT dla tabeli `muzyka`
 --
 ALTER TABLE `muzyka`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 --
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
