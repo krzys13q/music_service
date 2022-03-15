@@ -80,11 +80,12 @@ if(!isset($_SESSION['zalogowany'])){
             <?php
                 
                 $conn = mysqli_connect('localhost','root','','serwis_muzyka');
-                if(isset($_POST['author']) && isset($_POST['tittle']) && isset($_POST['album']) && isset($_POST['year'])){
+                if(isset($_POST['author']) && isset($_POST['tittle']) && isset($_POST['album']) && isset($_POST['year']) && isset($_POST['gatunek'])){
                     $author = $_POST['author'];
                     $tittle = $_POST['tittle'];
                     $album = $_POST['album'];
                     $year = $_POST['year'];
+                    $gatunek = $_POST['gatunek'];
 
                     $cover_file_name = $_FILES['cover'] ['name'];
                     $cover_file_tmp = $_FILES['cover'] ['tmp_name'];
@@ -97,7 +98,7 @@ if(!isset($_SESSION['zalogowany'])){
                     $paths = $_SERVER['DOCUMENT_ROOT'] . '/gitHub/music_service/muzyka/songs'; //jak nie działa to zmien sciezke 
                     move_uploaded_file($song_file_tmp, $paths."/".$song_file_name);
                     $dbpaths = "./songs/".$song_file_name;
-                    $sql = "insert into `muzyka` (`autor`, `album`, `tytul`, `rok`, `sciezka_muzyki`, `sciezka_okladki`) values ('$author', '$album', '$tittle', '$year', '$dbpaths', '$dbpathc')";
+                    $sql = "insert into `muzyka` (`autor`, `album`, `tytul`, `rok`, `sciezka_muzyki`, `sciezka_okladki`, `gatunek`) values ('$author', '$album', '$tittle', '$year', '$dbpaths', '$dbpathc', '$gatunek')";
                     $result = $conn -> query($sql);
                 } 
             
