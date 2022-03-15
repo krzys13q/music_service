@@ -65,6 +65,7 @@ if(!isset($_SESSION['zalogowany'])){
             <p>Stwórz swoją wymarzoną Playlistę</p>
         </div>
          <div id="search">
+             <div id="add-name-playlit"> </div>
             
              <div id="searchbar">
              
@@ -91,26 +92,28 @@ $sql="SELECT album,autor,tytul,sciezka_okladki,sciezka_muzyki FROM muzyka where 
 $result=$conn->query($sql);
 
 if($result->num_rows>0){
-    echo "<h1>Utwory</h1>";
+    
     while($row=$result->fetch_assoc()){
     echo <<< row
     
 
                 
-                <a href="play.php?autor=$row[autor]&okladka=$row[sciezka_okladki]&tytul=$row[tytul]&muzyka=$row[sciezka_muzyki]&album=$row[album]" >
+                
                 <div class="list-element">
+                
                 <img src="$row[sciezka_okladki]" alt="">
                 <div class="description">
 
-                <h4>$row[autor]</h4>
-                <h5>$row[tytul]</h5>
-               
+                <p>$row[autor]<br>
+                $row[tytul]</p>
+
 
                 </div>
+                <a><i class="fa-solid fa-circle-plus"></i></a>
 
                 
                 </div>
-                </a>
+                
                 
             
             
@@ -138,7 +141,12 @@ mysqli_close($conn);
          </div>
          <div id="list">
              
+<?php
 
+
+
+mysqli_close($conn);
+?>
          </div>
 
 
