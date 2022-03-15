@@ -80,14 +80,14 @@ if(!isset($_SESSION['zalogowany'])){
            
         ?>
             <div id="search-list">
-                <p>lista</p>
+              
 
                 <?php
 $conn=mysqli_connect('localhost','root','','serwis_muzyka') or die("error");
 
 if(isset($_POST['search'])){
 $search=$_POST['search'];
-$sql="SELECT album,autor,tytul,sciezka_okladki,sciezka_muzyki FROM muzyka where tytul like '%$search%'  or autor like '%$search%' ";
+$sql="SELECT ROW_number() over(ORDER by tytul asc) as licznik, album,autor,tytul,sciezka_okladki,sciezka_muzyki FROM muzyka where tytul like '%$search%'  or autor like '%$search%' ";
 
 $result=$conn->query($sql);
 
@@ -99,17 +99,17 @@ if($result->num_rows>0){
 
                 
                 
-                <div class="list-element">
-                
-                <img src="$row[sciezka_okladki]" alt="">
-                <div class="description">
+                <div class="list">
+                <div class='tracklist-row'><p>$row[licznik]</p></div>
+                <div class='img-list'><img src="$row[sciezka_okladki]" alt=""></div>
+                <div class='author-tittle'>
 
-                <p>$row[autor]<br>
-                $row[tytul]</p>
+                <p><b>$row[tytul]</b><br>$row[autor]
+                </p>
 
 
                 </div>
-                <a><i class="fa-solid fa-circle-plus"></i></a>
+                <div class="play"><a><i class="fa-solid fa-circle-plus"></i></a></div>
 
                 
                 </div>
@@ -134,12 +134,12 @@ row;
 
 
 
-mysqli_close($conn);
+
 
 ?>
             </div>
          </div>
-         <div id="list">
+         <div id="list-add">
              
 <?php
 
