@@ -66,7 +66,8 @@ if(!isset($_SESSION['zalogowany'])){
         </div>
          <div id="search">
              <div id="add-name-playlit"> </div>
-            
+             <div id="h1"> <h1>Wyszukaj utwór </h1></div>
+           
              <div id="searchbar">
              
          <form action="playlist.php" class="search-bar" method="post">
