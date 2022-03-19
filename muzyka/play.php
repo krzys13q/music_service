@@ -35,31 +35,29 @@ $album=$_GET['album'];
     
     <div class="menu">
     
+    <a title="strona główna" href="start.php"><i  class="fa-solid fa-house-chimney"></i></a>
+    </div>
+    <div class="menu">
+    <a title="wyszukaj" href="search.php"><i  class="fa-solid fa-magnifying-glass"></a></i>
+    </div>
+    <div class="menu">
+    <a title="playlisty" href="playlist.php"><i id="playlist"  class="fa-solid fa-compact-disc"></a></i>
+    </div>
+    <div class="menu">
+    <a title="dodaj muzykę" href="add-music.php"><i  class="fa-regular fa-square-plus"></a></i>
+    </div>
 
-        <a href="start.php"><i id="home" class="fa-solid fa-house-chimney"></i></a>
-        </div>
-        <div class="menu">
-        <a href="search.php"><i  class="fa-solid fa-magnifying-glass"></a></i>
-        </div>
-        <div class="menu">
-        <a href="playlist.php"><i  class="fa-solid fa-compact-disc"></a></i>
-        </div>
-        <div class="menu">
-        <a href="add-music.php"><i  class="fa-regular fa-square-plus"></a></i>
-        </div>
-    
-        <div class="menu">
-        <a href="user.php">
-        <i  class="fa-solid fa-circle-user"></i>
-        </a>
-        </div>
-    
+    <div class="menu">
+    <a title="profil użytkownika" href="user.php">
+    <i  class="fa-solid fa-circle-user"></i>
+    </a>
+    </div>
         
      
 
 
 <div id="logout">
-<a href="logout.php">
+<a title="wyloguj" href="logout.php">
         <i  class="fa-solid fa-right-to-bracket"></i>
         </a>
         </div>

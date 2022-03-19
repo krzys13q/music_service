@@ -71,7 +71,7 @@ if(!isset($_SESSION['zalogowany'])){
              <div id="searchbar">
              
          <form action="playlist.php" class="search-bar" method="post">
-	    <input type="search" placeholder="..." name="search" pattern=".*\S.*" required>
+	    <input type="search" placeholder="..." name="add" pattern=".*\S.*" required>
 	    <button class="fa-solid fa-magnifying-glass" type="submit">
 		
 	    </button>
@@ -84,10 +84,11 @@ if(!isset($_SESSION['zalogowany'])){
               
 
                 <?php
+
 $conn=mysqli_connect('localhost','root','','serwis_muzyka') or die("error");
 
-if(isset($_POST['search'])){
-$search=$_POST['search'];
+if(isset($_POST['add'])){
+$add=$_POST['add'];
 $sql="SELECT ROW_number() over(ORDER by tytul asc) as licznik, album,autor,tytul,sciezka_okladki,sciezka_muzyki FROM muzyka where tytul like '%$search%'  or autor like '%$search%' ";
 
 $result=$conn->query($sql);
@@ -141,16 +142,57 @@ row;
             </div>
          </div>
          <div id="list-add">
+         <div id="h1"> <h1>Utwórz playlistę </h1></div>
+         
              
+<div class="add-playlist"><form action="playlist.php" class="search-bar" method="post">
+<input type="text" placeholder="..." name="search" pattern=".*\S.*" required>
+<button class="fa-solid fa-circle-plus" type="submit">
+
+</button>
+</form>
+</div>
 <?php
 
 
 
+if(isset($_POST['search'])){
+    $search=$_POST['search'];
+    $sql="SELECT ROW_number() over(ORDER by tytul asc) as licznik, album,autor,tytul,sciezka_okladki,sciezka_muzyki FROM muzyka where tytul like '%$search%'  or autor like '%$search%' ";
+    
+    $result=$conn->query($sql);
+    
+    if($result->num_rows>0){
+        
+        while($row=$result->fetch_assoc()){
+            echo <<< row
+            <div class="list">
+            <div class='tracklist-row'><p>$row[licznik]</p></div>
+            <div class='img-list'><img src="$row[sciezka_okladki]" alt=""></div>
+            <div class='author-tittle'>
+
+            <p><b>$row[tytul]</b><br>$row[autor]
+            </p>
+
+
+            </div>
+            <div class="play"><a><i class="fa-solid fa-circle-minus"></i></a></div>
+
+            
+            </div>
+row;
+            
+    }
+}
+}
+    
+               
 mysqli_close($conn);
 ?>
          </div>
 
 
+        
         </div>
     
 </body>

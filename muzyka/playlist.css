@@ -128,6 +128,11 @@ i:hover{
      
      
  }
+ .add-playlist{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+ }
 
  #searchbar{
 
@@ -141,6 +146,7 @@ i:hover{
  form{
      padding-top: 10%;
  }
+
 
  .img-list{
 
