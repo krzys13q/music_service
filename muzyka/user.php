@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="logo.png" type="image/x-icon">
     <script src="navbar.js"></script>
     
-    <title>Informacje o Kosncie</title>
+    <title>Informacje o Koncie</title>
 </head>
 <body onload="check()">
 <?php

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/all.css">
     <script src="navbar.js"></script>
     
-    <title>Document</title>
+    <title>Strona główna</title>
 </head>
 <body onload="check()">
 <?php 

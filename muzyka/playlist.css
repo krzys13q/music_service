@@ -235,3 +235,38 @@ h1{
 
 
 }
+.vinyl{
+    height: 100vh;
+    width: 100%;
+    background-color: #d10966;
+    position: absolute;
+}
+.vinyl h1{
+text-align: center;
+}
+.vinyl-img img{
+
+    height: 600px;
+    width: 600px;
+}
+.vinyl-img{
+    left: 50%;
+    top:50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    animation: circle 5.5s infinite linear;
+
+}
+
+@keyframes circle{
+
+    0%{
+        transform: translate(-50%,-50%) rotate(0deg);
+    }
+    100%{
+        transform: translate(-50%,-50%) rotate(360deg);
+    }
+    }
+
+
+}

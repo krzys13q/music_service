@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="add-music.css">
     <link rel="shortcut icon" href="logo.png" type="image/x-icon">
     <script src="navbar.js"></script>
-    <title>Wyszukaj</title>
+    <title>Dodaj muzykę</title>
     
 </head>
 <body onload="check()">

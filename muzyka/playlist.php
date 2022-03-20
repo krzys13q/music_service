@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="playlist.css">
     <link rel="shortcut icon" href="logo.png" type="image/x-icon">
     <script src="navbar.js"></script>
-    <title>Wyszukaj</title>
+    <title>Playlisty</title>
 </head>
 <body onload="check()">
 <?php
@@ -60,8 +60,12 @@ if(!isset($_SESSION['zalogowany'])){
     
     
         <div id="mid">
-            
-        <div id="header">
+        <div class="vinyl">
+            <h1>Funkcja playlist zostanie dodana w przyszłości za wszelkie utrudnienia przepraszamy :(</h1>
+            <div class="vinyl-img"><img src="vinyl.png" alt=""></div>
+        </div>
+            <!--
+            <div id="header">
             <p>Stwórz swoją wymarzoną Playlistę</p>
         </div>
          <div id="search">
@@ -77,15 +81,16 @@ if(!isset($_SESSION['zalogowany'])){
 	    </button>
         </form>
         </div>
+-->
         <?php
            
         ?>
-            <div id="search-list">
+           <!--<div id="search-list">
               
 
                 <?php
 
-$conn=mysqli_connect('localhost','root','','serwis_muzyka') or die("error");
+/*$conn=mysqli_connect('localhost','root','','serwis_muzyka') or die("error");
 
 if(isset($_POST['add'])){
 $add=$_POST['add'];
@@ -137,8 +142,9 @@ row;
 
 
 
-
+*/
 ?>
+<!_
             </div>
          </div>
          <div id="list-add">
@@ -152,9 +158,10 @@ row;
 </button>
 </form>
 </div>
+_>
 <?php
 
-
+/*
 
 if(isset($_POST['search'])){
     $search=$_POST['search'];
@@ -188,12 +195,14 @@ row;
     
                
 mysqli_close($conn);
+*/
 ?>
          </div>
 
 
         
         </div>
+-->
     
 </body>
 </html>
