@@ -77,7 +77,7 @@ $conn=mysqli_connect('localhost','root','','serwis_muzyka') or die("error");
 
 
 
-$sql="SELECT album,autor,tytul,sciezka_okladki,sciezka_muzyki FROM muzyka where tytul like '%' ";
+$sql="SELECT album,autor,tytul,sciezka_okladki,sciezka_muzyki FROM muzyka where tytul like '%' order by rand() limit 4 ";
 $result=$conn->query($sql);
 
 if($result->num_rows>0){
@@ -225,8 +225,7 @@ if($result->num_rows>0){
     while($row=$result->fetch_assoc()){
     echo <<< row
     
-
-    
+   
                 <a href="play.php?autor=$row[autor]&okladka=$row[sciezka_okladki]&tytul=$row[tytul]&muzyka=$row[sciezka_muzyki]&album=$row[album]" >
                 <div class="list-element">
                 <img src="$row[sciezka_okladki]" alt="">
@@ -241,27 +240,46 @@ if($result->num_rows>0){
                 
                 </div>
                 </a>
-                
-            
-            
-
-        
-
 row;
 }
 
 }
-
-
-
-
-
-
         ?>
 
             </div>
-            <h1>Dance</h1>
-        
+            <h1>Disco-Polo</h1>
+            <div class="list">
+<?php
+            $sql="SELECT album,autor,tytul,sciezka_okladki,sciezka_muzyki FROM muzyka where gatunek like 'Disco-Polo' ";
+$result=$conn->query($sql);
+
+if($result->num_rows>0){
+
+    while($row=$result->fetch_assoc()){
+    echo <<< row
+    
+   
+                <a href="play.php?autor=$row[autor]&okladka=$row[sciezka_okladki]&tytul=$row[tytul]&muzyka=$row[sciezka_muzyki]&album=$row[album]" >
+                <div class="list-element">
+                <img src="$row[sciezka_okladki]" alt="">
+                <div class="description">
+
+                <h4>$row[autor]</h4>
+                <h5>$row[tytul]</h5>
+               
+
+                </div>
+
+                
+                </div>
+                </a>
+row;
+}
+
+}
+        ?>
+
+            </div>
      
     </div>
     

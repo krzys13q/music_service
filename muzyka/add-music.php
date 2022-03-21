@@ -89,13 +89,13 @@ if(!isset($_SESSION['zalogowany'])){
 
                     $cover_file_name = $_FILES['cover'] ['name'];
                     $cover_file_tmp = $_FILES['cover'] ['tmp_name'];
-                    $pathc = $_SERVER['DOCUMENT_ROOT'] . '/gitHub/music_service/muzyka/cover'; //jak nie działa to zmien sciezke 
+                    $pathc = $_SERVER['DOCUMENT_ROOT'] . '/music_service/muzyka/cover'; //jak nie działa to zmien sciezke 
                     move_uploaded_file($cover_file_tmp, $pathc."/".$cover_file_name);
                     $dbpathc = "./cover/".$cover_file_name;
 
                     $song_file_name = $_FILES['music'] ['name'];
                     $song_file_tmp = $_FILES['music'] ['tmp_name'];
-                    $paths = $_SERVER['DOCUMENT_ROOT'] . '/gitHub/music_service/muzyka/songs'; //jak nie działa to zmien sciezke 
+                    $paths = $_SERVER['DOCUMENT_ROOT'] . '/music_service/muzyka/songs'; //jak nie działa to zmien sciezke 
                     move_uploaded_file($song_file_tmp, $paths."/".$song_file_name);
                     $dbpaths = "./songs/".$song_file_name;
                     $sql = "insert into `muzyka` (`autor`, `album`, `tytul`, `rok`, `sciezka_muzyki`, `sciezka_okladki`, `gatunek`) values ('$author', '$album', '$tittle', '$year', '$dbpaths', '$dbpathc', '$gatunek')";

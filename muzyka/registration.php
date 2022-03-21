@@ -39,11 +39,12 @@ if(isset($_POST['name'])&&isset($_POST['login'])&&isset($_POST['password'])&&iss
 $name=$_POST['name'];
 $login=$_POST['login'];
 $password=$_POST['password'];
+$tajne_haslo = sha1($password);
 $type=$_POST['type'];
 
 
 
-$sql="INSERT INTO `users` (`id`, `login`, `name`, `password`, `type`) VALUES (null, '$login', '$name', '$password', '$type')";
+$sql="INSERT INTO `users` (`id`, `login`, `name`, `password`, `type`) VALUES (null, '$login', '$name', '$tajne_haslo', '$type')";
 
 if($result=$conn->query($sql)===TRUE){
     header("location:login.php");

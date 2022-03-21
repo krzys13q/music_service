@@ -127,7 +127,7 @@ $album=$_GET['album'];
         </div>
         <div id="playbar">
             <div class="audio">
-        <audio controls>
+        <audio controls autoplay>
 
   <source src="<?php echo $muzyka ?>" type="">
  
