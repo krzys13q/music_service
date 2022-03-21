@@ -131,7 +131,13 @@ h1{
 .list{
     width: 96vw;
     height: 300px;
+    margin-left: auto;
+    margin-right: auto;
     
+    
+    
+   
+   
 }
 
 .list-element{

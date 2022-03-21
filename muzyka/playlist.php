@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="playlist.css">
     <link rel="shortcut icon" href="logo.png" type="image/x-icon">
     <script src="navbar.js"></script>
-    <title>Wyszukaj</title>
+    <title>Playlisty</title>
 </head>
 <body onload="check()">
 <?php
@@ -60,57 +60,67 @@ if(!isset($_SESSION['zalogowany'])){
     
     
         <div id="mid">
-            
-        <div id="header">
+        <div class="vinyl">
+            <h1>Funkcja playlist zostanie dodana w przyszłości za wszelkie utrudnienia przepraszamy :(</h1>
+            <div class="vinyl-img"><img src="vinyl.png" alt=""></div>
+        </div>
+            <!--
+            <div id="header">
             <p>Stwórz swoją wymarzoną Playlistę</p>
         </div>
          <div id="search">
-            
+             <div id="add-name-playlit"> </div>
+             <div id="h1"> <h1>Wyszukaj utwór </h1></div>
+           
              <div id="searchbar">
              
          <form action="playlist.php" class="search-bar" method="post">
-	    <input type="search" placeholder="..." name="search" pattern=".*\S.*" required>
+	    <input type="search" placeholder="..." name="add" pattern=".*\S.*" required>
 	    <button class="fa-solid fa-magnifying-glass" type="submit">
 		
 	    </button>
         </form>
         </div>
+-->
         <?php
            
         ?>
-            <div id="search-list">
-                <p>lista</p>
+           <!--<div id="search-list">
+              
 
                 <?php
-$conn=mysqli_connect('localhost','root','','serwis_muzyka') or die("error");
 
-if(isset($_POST['search'])){
-$search=$_POST['search'];
-$sql="SELECT album,autor,tytul,sciezka_okladki,sciezka_muzyki FROM muzyka where tytul like '%$search%'  or autor like '%$search%' ";
+/*$conn=mysqli_connect('localhost','root','','serwis_muzyka') or die("error");
+
+if(isset($_POST['add'])){
+$add=$_POST['add'];
+$sql="SELECT ROW_number() over(ORDER by tytul asc) as licznik, album,autor,tytul,sciezka_okladki,sciezka_muzyki FROM muzyka where tytul like '%$search%'  or autor like '%$search%' ";
 
 $result=$conn->query($sql);
 
 if($result->num_rows>0){
-    echo "<h1>Utwory</h1>";
+    
     while($row=$result->fetch_assoc()){
     echo <<< row
     
 
                 
-                <a href="play.php?autor=$row[autor]&okladka=$row[sciezka_okladki]&tytul=$row[tytul]&muzyka=$row[sciezka_muzyki]&album=$row[album]" >
-                <div class="list-element">
-                <img src="$row[sciezka_okladki]" alt="">
-                <div class="description">
+                
+                <div class="list">
+                <div class='tracklist-row'><p>$row[licznik]</p></div>
+                <div class='img-list'><img src="$row[sciezka_okladki]" alt=""></div>
+                <div class='author-tittle'>
 
-                <h4>$row[autor]</h4>
-                <h5>$row[tytul]</h5>
-               
+                <p><b>$row[tytul]</b><br>$row[autor]
+                </p>
+
 
                 </div>
+                <div class="play"><a><i class="fa-solid fa-circle-plus"></i></a></div>
 
                 
                 </div>
-                </a>
+                
                 
             
             
@@ -131,18 +141,68 @@ row;
 
 
 
-mysqli_close($conn);
 
+*/
 ?>
+<!_
             </div>
          </div>
-         <div id="list">
+         <div id="list-add">
+         <div id="h1"> <h1>Utwórz playlistę </h1></div>
+         
              
+<div class="add-playlist"><form action="playlist.php" class="search-bar" method="post">
+<input type="text" placeholder="..." name="search" pattern=".*\S.*" required>
+<button class="fa-solid fa-circle-plus" type="submit">
 
+</button>
+</form>
+</div>
+_>
+<?php
+
+/*
+
+if(isset($_POST['search'])){
+    $search=$_POST['search'];
+    $sql="SELECT ROW_number() over(ORDER by tytul asc) as licznik, album,autor,tytul,sciezka_okladki,sciezka_muzyki FROM muzyka where tytul like '%$search%'  or autor like '%$search%' ";
+    
+    $result=$conn->query($sql);
+    
+    if($result->num_rows>0){
+        
+        while($row=$result->fetch_assoc()){
+            echo <<< row
+            <div class="list">
+            <div class='tracklist-row'><p>$row[licznik]</p></div>
+            <div class='img-list'><img src="$row[sciezka_okladki]" alt=""></div>
+            <div class='author-tittle'>
+
+            <p><b>$row[tytul]</b><br>$row[autor]
+            </p>
+
+
+            </div>
+            <div class="play"><a><i class="fa-solid fa-circle-minus"></i></a></div>
+
+            
+            </div>
+row;
+            
+    }
+}
+}
+    
+               
+mysqli_close($conn);
+*/
+?>
          </div>
 
 
+        
         </div>
+-->
     
 </body>
 </html>
