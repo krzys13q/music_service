@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 5.0.3
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 22 Mar 2022, 10:15
--- Wersja serwera: 10.1.8-MariaDB
--- Wersja PHP: 5.6.14
+-- Czas generowania: 22 Mar 2022, 22:22
+-- Wersja serwera: 10.4.14-MariaDB
+-- Wersja PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -70,6 +71,37 @@ CREATE TABLE `playlist` (
   `id_utworu` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Zrzut danych tabeli `playlist`
+--
+
+INSERT INTO `playlist` (`id_playlisty`, `id_utworu`) VALUES
+(1, 1),
+(2, 2),
+(3, 46);
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `playlista2`
+--
+
+CREATE TABLE `playlista2` (
+  `id_playlisty` int(11) NOT NULL,
+  `id_utworu` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Zrzut danych tabeli `playlista2`
+--
+
+INSERT INTO `playlista2` (`id_playlisty`, `id_utworu`) VALUES
+(7, 1),
+(1, 52),
+(2, 52),
+(3, 55),
+(4, 55);
+
 -- --------------------------------------------------------
 
 --
@@ -98,39 +130,60 @@ INSERT INTO `users` (`id`, `login`, `name`, `password`, `type`) VALUES
 --
 
 --
--- Indexes for table `muzyka`
+-- Indeksy dla tabeli `muzyka`
 --
 ALTER TABLE `muzyka`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `playlist`
+-- Indeksy dla tabeli `playlist`
 --
 ALTER TABLE `playlist`
   ADD PRIMARY KEY (`id_playlisty`),
   ADD KEY `id_utworu` (`id_utworu`);
 
 --
--- Indexes for table `users`
+-- Indeksy dla tabeli `playlista2`
+--
+ALTER TABLE `playlista2`
+  ADD PRIMARY KEY (`id_playlisty`),
+  ADD KEY `playlista2` (`id_utworu`);
+
+--
+-- Indeksy dla tabeli `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `login` (`login`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT dla zrzuconych tabel
 --
 
 --
 -- AUTO_INCREMENT dla tabeli `muzyka`
 --
 ALTER TABLE `muzyka`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+
+--
+-- AUTO_INCREMENT dla tabeli `playlist`
+--
+ALTER TABLE `playlist`
+  MODIFY `id_playlisty` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT dla tabeli `playlista2`
+--
+ALTER TABLE `playlista2`
+  MODIFY `id_playlisty` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- Ograniczenia dla zrzutów tabel
 --
@@ -140,6 +193,13 @@ ALTER TABLE `users`
 --
 ALTER TABLE `playlist`
   ADD CONSTRAINT `playlist_ibfk_1` FOREIGN KEY (`id_utworu`) REFERENCES `muzyka` (`id`);
+
+--
+-- Ograniczenia dla tabeli `playlista2`
+--
+ALTER TABLE `playlista2`
+  ADD CONSTRAINT `playlista2` FOREIGN KEY (`id_utworu`) REFERENCES `muzyka` (`id`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
