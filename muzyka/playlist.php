@@ -93,7 +93,7 @@ $conn=mysqli_connect('localhost','root','','serwis_muzyka') or die("error");
 
 if(isset($_POST['add'])){
 $add=$_POST['add'];
-$sql="SELECT ROW_number() over(ORDER by tytul asc) as licznik, album,autor,tytul,sciezka_okladki,sciezka_muzyki FROM muzyka where tytul like '%$add%'  or autor like '%$add%' ";
+$sql="SELECT ROW_number() over(ORDER by tytul asc) as licznik, id, album,autor,tytul,sciezka_okladki,sciezka_muzyki FROM muzyka where tytul like '%$add%'  or autor like '%$add%' ";
 
 $result=$conn->query($sql);
 
@@ -115,7 +115,7 @@ if($result->num_rows>0){
 
 
                 </div>
-                <div class="play"><a><i class="fa-solid fa-circle-plus"></i></a></div>
+                <div class="play"><a href="playlist.php?autor=$row[autor]&okladka=$row[sciezka_okladki]&tytul=$row[tytul]&muzyka=$row[sciezka_muzyki]&album=$row[album]&id=$row[id]"><i class="fa-solid fa-circle-plus"></i></a></div>
 
                 
                 </div>
@@ -139,9 +139,6 @@ row;
 
 
 
-
-
-
 ?>
 
             </div>
@@ -151,7 +148,7 @@ row;
          
              
 <div class="add-playlist"><form action="playlist.php" class="search-bar" method="post">
-<input type="text" placeholder="..." name="add-playlist" pattern=".*\S.*" required>
+<input type="text" placeholder="dodaj playliste" name="add-playlist" pattern=".*\S.*" required>
 <button class="fa-solid fa-circle-plus" type="submit">
     
 
@@ -182,6 +179,13 @@ row;
 }
 }
 
+if(isset($table)&& isset($id)){
+$sql="INSERT INTO `$table` (`id_playlisty`, `id_utworu`) VALUES (NULL, '$id')"; //dodawanie do bazy danych, nie wiem jak to zrobić żeby śmigało :(
+$result=$conn->query($sql);
+echo $id;
+echo $table;
+}
+
 ?>
 </select>
 <button class="fa-solid fa-circle-plus" type="submit">
@@ -192,7 +196,7 @@ row;
 <?php
 
 
-//INSERT INTO `$table` (`id_playlisty`, `id_utworu`) VALUES (NULL, '46');
+//
 if(isset($_POST['database'])){
     $table=$_POST['database'];
     
