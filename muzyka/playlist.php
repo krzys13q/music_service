@@ -183,7 +183,8 @@ row;
 
 ?>
 </select>
-<button class="wybierz playliste" type="submit">
+<button  type="submit">
+wybierz playliste
     </button>
 </form>
 </div>
