@@ -179,24 +179,23 @@ row;
 }
 }
 
-if(isset($table)&& isset($id)){
-$sql="INSERT INTO `$table` (`id_playlisty`, `id_utworu`) VALUES (NULL, '$id')"; //dodawanie do bazy danych, nie wiem jak to zrobić żeby śmigało :(
-$result=$conn->query($sql);
-echo $id;
-echo $table;
-}
+
 
 ?>
 </select>
-<button class="fa-solid fa-circle-plus" type="submit">
+<button class="wybierz playliste" type="submit">
     </button>
 </form>
 </div>
 
 <?php
+if(isset($table)&& isset($id)){
+    $sql="INSERT INTO `$table` (`id_playlisty`, `id_utworu`) VALUES (NULL, '$id')"; //dodawanie do bazy danych, nie wiem jak to zrobić żeby śmigało :(
+    $result=$conn->query($sql);
+   
+    }
 
 
-//
 if(isset($_POST['database'])){
     $table=$_POST['database'];
     
