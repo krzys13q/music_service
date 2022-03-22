@@ -151,13 +151,21 @@ row;
          
              
 <div class="add-playlist"><form action="playlist.php" class="search-bar" method="post">
-<input type="text" placeholder="..." name="search" pattern=".*\S.*" required>
+<input type="text" placeholder="..." name="add-playlist" pattern=".*\S.*" required>
 <button class="fa-solid fa-circle-plus" type="submit">
     
 
 </button>
 
 </form>
+<?php
+
+if(isset($_POST['add-playlist'])){
+$playlista=$_POST['add-playlist'];
+$sql="CREATE TABLE `$playlista` ( `id_playlisty` int(11) PRIMARY KEY AUTO_INCREMENT, `id_utworu` int(11) NOT NULL, CONSTRAINT `$playlista` FOREIGN KEY (`id_utworu`) REFERENCES `muzyka` (`id`) )";
+$result=$conn->query($sql);
+}
+?>
 <br>
 <form action="playlist.php"  method="post">
 <select name="database" id="database">
