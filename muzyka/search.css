@@ -90,6 +90,25 @@ i{
         float: left;
         
 }
+#mid::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+#mid::-webkit-scrollbar:vertical {
+    width: 10px;
+}
+#mid::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+#mid::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid rgba(0, 0, 255, 0); 
+    background-color: rgba(255, 255, 255, 0.884);
+}
+#mid::-webkit-scrollbar-track { 
+    background-color: rgba(255, 255, 255, 0.205); 
+    border-radius: 8px; 
+
+}
 
 #search_bar{
 
